@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Bangers|Rock+Salt|Shojumaru&display=swap" rel="stylesheet" type='text/css'>
+
+    <meta charset="utf-8">
+    <title>SUMO</title>
+    <style>
+    #myCanvas{
+      border:1px solid black;
+    }
+    body {
+    /* background-color: #000; */
+    }
+    .player-controls{
+      border:1px solid black;
+      padding-left: 20px
+    }
+    div.row{
+      padding-right: 420px
+    }
+    div.container{
+      position: absolute;
+      left: 33%;
+      bottom: 75%;
+    }
+    canvas{
+      position: absolute;
+      left: 35%;
+      bottom: 10%;
+      background-color: #ffffff ;
+    }
+    button.center{
+      position: absolute;
+      left: 46%;
+      top: 10%;
+    }
+    h1.coo{
+    color: #FF0000;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font: 60px 'Shojumaru', cursive;
+    font-weight: 400;
+    }
+    .player-1{
+      color: blue;
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      font: 20px 'Shojumaru', cursive;
+      font-weight: 400;
+    }
+    .player-2{
+      color: purple;
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      font: 20px 'Shojumaru', cursive;
+      font-weight: 400;
+    }
+    .player-controls{
+      color: #000;
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+    }
+    .playerTags{
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      font: 20px 'Shojumaru', cursive;
+      font-weight: 400;
+    }
+    .rTimer{
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      color: red;
+      font: 25px 'Shojumaru', cursive;
+      position: absolute;
+      left: 50%;
+      top: 20%;
+    }
+    .victory{
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      font: 60px 'Shojumaru', cursive;
+      font-weight: 400;
+    }
+
+    </style>
+
+  </head>
+
+  <body background="http://d3q4fqc42opanl.cloudfront.net/20180311054438/Chiswick-Auctions-London-Woodblock-Kuniyoshi.jpg">
+
+    <h1 class="coo" align="center">SUMO ARENA</h1>
+    <script>
+      function play(){
+        var audio = document.getElementById("audio");
+        audio.play();
+                }
+    </script>
+
+    <form align="center" id="startForm" action="index.html" method="post" style="">
+      <p class="player-1">Player 1  <input id="name-1" type="text" name="player1" value=""></p>
+      <p class="player-2">Player 2  <input id="name-2" type="text" name="player2" value=""></p>
+      <button class="btn btn-dark" type="button" name="controls"> Controls</button>
+      <input class="btn btn-dark" type="button" name="start" value="Start" onclick="play()">
+      <audio id="audio" src="./assets/agni kai shortened.mp3"></audio>
+    </form>
+
+    <button class="center btn btn-success" id="change-sprites" type="button" style='display:none'>Change Sprites</button>
+
+    <div align="center"; id="control-panel" style='display:none'>
+      <div class="player-controls">
+        <h3 class="player-1">Player 1</h3>
+        <p>Up = W </p>
+        <p>Down = S </p>
+        <p>Left = A </p>
+        <p>Right = D </p>
+      </div>
+
+      <div  class="player-controls">
+        <h3 class="player-2">Player 2</h3>
+        <p>Up = I </p>
+        <p>Down = K </p>
+        <p>Left = J </p>
+        <p>Right = L </p>
+      </div>
+
+    </div>
+
+  <p>
+    <span class="glyphicon glyphicon-star"></span>
+  </p>
+
+  <div id="scoreCont" style='display:block;' class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="playerTags" id="p1-tag"></h3>
+        <h3 class="playerTags" id="p1-score"></h3>
+      </div>
+      <div class="col">
+        <h3 class="playerTags" id="p2-tag"></h3>
+        <h3 class="playerTags" id="p2-score"></h3>
+      </div>
+    </div>
+  </div>
+
+  <div align="center" id="vicScreen" style='display:none' align="center";>
+    <div class="victory" id="victory">
+    </div>
+    <button id="reloadBtn" class="btn btn-warning btn-lg" type="button" name="rematch">Home</button>
+  </div>
+
+  <h3 class="rTimer" style='display:none; color:black' id="gig">450</h3>
+
+
+    <canvas id="myCanvas" width="480" height="480" style='display:none' ></canvas>
+
+      <script type="text/javascript" src='./src/player.js'></script>
+      <script type="text/javascript" src='./src/index.js'></script>
+
+
+
+  </body>
+
+</html>
